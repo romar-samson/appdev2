@@ -1,7 +1,5 @@
 import { registerRootComponent } from 'expo';
 
-import App from './App';
-import LotsOfStyles from './components/LotsOfStyles';
 import FixedDimensionsBasics from './components/FixedDimensionsBasics';
 
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);
