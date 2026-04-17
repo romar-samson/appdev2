@@ -47,6 +47,7 @@ export function DetailsScreen({ route }) {
       >
         Go to Details... again
       </Button>
+      
       <Button
         onPress={() =>
           navigation.setParams({
