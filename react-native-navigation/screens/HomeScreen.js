@@ -4,7 +4,6 @@ import { createStaticNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Link } from '@react-navigation/native';
 import { Button } from '@react-navigation/elements';
-import { DetailsScreen } from './DetailsScreen';
 
 
 function HomeScreen() {
