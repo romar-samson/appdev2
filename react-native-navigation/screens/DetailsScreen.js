@@ -47,6 +47,15 @@ export function DetailsScreen({ route }) {
       >
         Go to Details... again
       </Button>
+      <Button
+        onPress={() =>
+          navigation.setParams({
+            itemId: Math.floor(Math.random() * 100),
+          })
+        }
+      >
+        Update itemId
+      </Button>
     </View>
   );
 }
@@ -60,7 +69,10 @@ const RootStack = createNativeStackNavigator({
         title: 'Overview',
       },
     },
-    Details: DetailsScreen,
+    Details: {
+      screen: DetailsScreen,
+      initialParams: { itemId: 42 },
+    },
   },
 });
 
