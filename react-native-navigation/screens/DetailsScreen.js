@@ -10,6 +10,15 @@ import { Button } from '@react-navigation/elements';
 function HomeScreen() {
   const navigation = useNavigation();
 
+    // Use an effect to monitor the update to params
+  React.useEffect(() => {
+    if (route.params?.post) {
+      // Post updated, do something with `route.params.post`
+      // For example, send the post to the server
+      alert('New post: ' + route.params?.post);
+    }
+  }, [route.params?.post]);
+
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
@@ -24,6 +33,31 @@ function HomeScreen() {
         Go to Details
       </Button>
     </View>
+  );
+}
+
+function CreatePostScreen({ route }) {
+  const navigation = useNavigation();
+  const [postText, setPostText] = React.useState('');
+
+  return (
+    <>
+      <TextInput
+        multiline
+        placeholder="What's on your mind?"
+        style={{ height: 200, padding: 10, backgroundColor: 'white' }}
+        value={postText}
+        onChangeText={setPostText}
+      />
+      <Button
+        onPress={() => {
+          // Pass params back to home screen
+          navigation.popTo('Home', { post: postText });
+        }}
+      >
+        Done
+      </Button>
+    </>
   );
 }
 
@@ -47,7 +81,7 @@ export function DetailsScreen({ route }) {
       >
         Go to Details... again
       </Button>
-      
+
       <Button
         onPress={() =>
           navigation.setParams({
@@ -74,6 +108,7 @@ const RootStack = createNativeStackNavigator({
       screen: DetailsScreen,
       initialParams: { itemId: 42 },
     },
+    CreatePost: CreatePostScreen,
   },
 });
 
