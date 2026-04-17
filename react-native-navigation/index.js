@@ -1,11 +1,8 @@
 import { registerRootComponent } from 'expo';
 
-import App from './App';
-import Home from './screens/Home';
-import Details from './screens/Details';
-import Options from './screens/Options';
+import Home from './screens/HomeScreen';
 
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);
 // It also ensures that whether you load the app in Expo Go or in a native build,
 // the environment is set up appropriately
-registerRootComponent(Options);
+registerRootComponent(Home);
