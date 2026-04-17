@@ -12,10 +12,15 @@ function HomeScreen() {
 }
 
 const RootStack = createNativeStackNavigator({
+  initialRouteName: 'Home',
   screens: {
-    Home: HomeScreen,
+    Home: {
+      screen: HomeScreen,
+    },
+    Details: DetailsScreen,
   },
 });
+
 
 const Navigation = createStaticNavigation(RootStack);
 

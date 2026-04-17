@@ -21,6 +21,9 @@ function DetailsScreen() {
 
 const RootStack = createNativeStackNavigator({
   initialRouteName: 'Home',
+  screenOptions: {
+    headerStyle: { backgroundColor: 'tomato' },
+  },
   screens: {
     Home: {
       screen: HomeScreen,
